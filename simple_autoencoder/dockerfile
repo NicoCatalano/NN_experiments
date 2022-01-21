@@ -1,0 +1,19 @@
+#Deriving the latest base image
+FROM python:latest
+FROM tensorflow/tensorflow:latest-gpu-py3
+
+
+RUN  mkdir WORK_REPO
+RUN  cd  WORK_REPO
+WORKDIR  /WORK_REPO
+
+ADD *.py .
+#RUN pip3 install matplotlib
+#RUN pip3 install SciPy
+
+#CMD instruction should be used to run the software
+#contained by your image, along with any arguments.
+CMD [ "python3", "./autoencoder.py"]
+
+
+
