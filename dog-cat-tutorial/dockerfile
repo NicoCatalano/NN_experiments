@@ -1,0 +1,26 @@
+#Deriving the latest base image
+FROM python:latest
+FROM tensorflow/tensorflow:latest-gpu-py3
+#need to create an imanage for matplotli and import it
+
+
+
+# Any working direcrtory can be chosen as per choice like '/' or '/home' etc
+#WORKDIR ~/code/
+#COPY test.py ./
+
+RUN  mkdir WORK_REPO
+RUN  cd  WORK_REPO
+WORKDIR  /WORK_REPO
+
+ADD *.py .
+RUN pip3 install matplotlib
+RUN pip3 install SciPy
+#CMD instruction should be used to run the software
+#contained by your image, along with any arguments.
+
+
+CMD [ "python3", "./dog-cat-tutorial.py"]
+
+
+
